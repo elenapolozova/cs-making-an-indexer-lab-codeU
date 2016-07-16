@@ -55,10 +55,14 @@ public class Index {
 	 */
 	public void indexPage(String url, Elements paragraphs) {
 		// make a TermCounter and count the terms in the paragraphs
-        // TODO: fill this in
+		TermCounter tc = new TermCounter(url); // make a new counter and label it with the url
+		tc.processElements(paragraphs); // feed it the paragraphs
+        
 		
 		// for each term in the TermCounter, add the TermCounter to the index
-        // TODO: fill this in
+        for (String term: tc.keySet()){ // for each term, add the termcounter to the index
+        	add(term, tc);
+        }
 	}
 
 	/**
